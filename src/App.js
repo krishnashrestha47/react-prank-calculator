@@ -7,7 +7,21 @@ function App() {
   const [str, setStr] = useState("");
 
   const handleOnClick = (value) => {
+    //what we should do when we click on a specific button
+    if (value === "AC") {
+      setStr("");
+      return;
+    }
+
+    if (value === "=") {
+      return onTotal();
+    }
     setStr(str + value);
+  };
+
+  const onTotal = () => {
+    const ttl = eval(str);
+    setStr(ttl.toFixed(2).toString());
   };
 
   return (
