@@ -16,6 +16,13 @@ function App() {
     if (value === "=") {
       return onTotal();
     }
+
+    if (value === "C") {
+      const tempStr = str.slice(0, -1);
+      setStr(tempStr);
+      return;
+    }
+
     setStr(str + value);
   };
 
