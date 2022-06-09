@@ -4,7 +4,7 @@ import { ButtonArea } from "./components/ButtonArea";
 import { Display } from "./components/Display";
 
 function App() {
-  const [str, setStr] = useState();
+  const [str, setStr] = useState("");
 
   const handleOnClick = (value) => {
     setStr(str + value);
@@ -14,7 +14,7 @@ function App() {
     <div className="wrapper">
       <Display str={str} />
       {/*correct way is to give different div to input and all the buttons */}
-      <ButtonArea />
+      <ButtonArea handleOnClick={handleOnClick} />
     </div>
   );
 }
