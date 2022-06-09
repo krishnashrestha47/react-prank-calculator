@@ -1,5 +1,13 @@
 import React from "react";
 
 export const Button = ({ clsName, label }) => {
-  return <div class={clsName}>{label}</div>;
+  const handleOnClick = (value) => {
+    console.log(value);
+  };
+
+  return (
+    <div className={clsName} onClick={() => handleOnClick(label)}>
+      {label}
+    </div>
+  );
 };
