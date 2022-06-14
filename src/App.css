@@ -144,3 +144,31 @@ body {
 .display {
   grid-area: display;
 }
+
+.prank {
+  color: red;
+  font-weight: bold;
+  animation: bounce ease-in 1s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateX(5px);
+  }
+  25% {
+    transform: translateX(-5px);
+    color: red;
+  }
+  50% {
+    transform: translateX(-5px);
+    color: yellow;
+  }
+  75% {
+    transform: translateX(5px);
+    color: greenyellow;
+  }
+  100% {
+    transform: translateX(-5px);
+    color: slateblue;
+  }
+}

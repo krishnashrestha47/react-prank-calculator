@@ -6,10 +6,13 @@ import { Display } from "./components/Display";
 function App() {
   const [str, setStr] = useState("");
   const [lastOperator, setLastOperator] = useState("");
+  const [isPrank, setIsPrank] = useState(false);
 
   const operators = ["+", "-", "*", "/", "%"];
 
   const handleOnClick = (value) => {
+    isPrank && setIsPrank(false);
+
     //what we should do when we click on a specific button
     if (value === "AC") {
       setStr("");
@@ -55,13 +58,22 @@ function App() {
   };
 
   const onTotal = () => {
-    const ttl = eval(str);
+    const prankVal = randomNumber();
+    prankVal > 0 && setIsPrank(true);
+
+    const ttl = eval(str) + prankVal;
     setStr(ttl.toFixed(2).toString());
+  };
+
+  const randomNumber = () => {
+    const num = Math.ceil(Math.random() * 10);
+
+    return num > 3 ? 0 : num;
   };
 
   return (
     <div className="wrapper">
-      <Display str={str} />
+      <Display str={str} isPrank={isPrank} />
       {/*correct way is to give different div to input and all the buttons */}
       <ButtonArea handleOnClick={handleOnClick} />
     </div>
