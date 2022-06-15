@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
+import music from "./asset/audio.wav";
 import { ButtonArea } from "./components/ButtonArea";
 import { Display } from "./components/Display";
 
@@ -7,6 +8,8 @@ function App() {
   const [str, setStr] = useState("");
   const [lastOperator, setLastOperator] = useState("");
   const [isPrank, setIsPrank] = useState(false);
+
+  const [audio] = useState(new Audio(music));
 
   const operators = ["+", "-", "*", "/", "%"];
 
@@ -59,7 +62,7 @@ function App() {
 
   const onTotal = () => {
     const prankVal = randomNumber();
-    prankVal > 0 && setIsPrank(true);
+    prankVal > 0 && audio.play() && setIsPrank(true);
 
     const ttl = eval(str) + prankVal;
     setStr(ttl.toFixed(2).toString());
