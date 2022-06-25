@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import music from "./asset/audio.wav";
 import { ButtonArea } from "./components/ButtonArea";
@@ -75,11 +75,16 @@ function App() {
   };
 
   return (
-    <div className="wrapper">
-      <Display str={str} isPrank={isPrank} />
-      {/*correct way is to give different div to input and all the buttons */}
-      <ButtonArea handleOnClick={handleOnClick} />
-    </div>
+    <>
+      <div className="text-center">
+        <h1>Prank Calculator 🤯 😵‍💫 </h1>
+      </div>
+      <div className="wrapper">
+        <Display str={str} isPrank={isPrank} />
+        {/*correct way is to give different div to input and all the buttons */}
+        <ButtonArea handleOnClick={handleOnClick} />
+      </div>
+    </>
   );
 }
 
