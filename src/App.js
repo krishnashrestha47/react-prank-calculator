@@ -23,6 +23,7 @@ function App() {
     }
 
     if (value === "=") {
+      if (!str.length) return;
       return onTotal();
     }
 
